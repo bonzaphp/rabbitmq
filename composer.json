@@ -1,0 +1,20 @@
+{
+  "name": "bonza/rabbitmq",
+  "description": "A PHP client for RabbitMQ that supports both regular and delayed messaging.",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "bonza",
+      "email": "bonzaphp@gmail.com"
+    }
+  ],
+  "require": {
+    "php-amqplib/php-amqplib": "^2.7"
+  },
+  "autoload": {
+    "psr-4": {
+      "Bonza\\RabbitMQ\\": "src/"
+    }
+  }
+}
