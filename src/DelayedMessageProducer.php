@@ -40,8 +40,8 @@ class DelayedMessageProducer
         $this->channel->exchange_declare($exchangeName, 'x-delayed-message', false, true, false,false,false,$args);
 
         // Declare a queue and bind it to the delayed exchange
-        $this->channel->queue_declare("bonza_t", false, true, false, false);
-        $this->channel->queue_bind("bonza_t", $exchangeName, $routingKey);
+        $this->channel->queue_declare("ok1", false, true, false, false);
+        $this->channel->queue_bind("ok1", $exchangeName, $routingKey);
 
         // Set the message properties
 //        $msg = new AMQPMessage($message, array('delivery_mode' => 2)); // Make message persistent

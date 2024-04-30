@@ -5,7 +5,7 @@
  * Date: 2024-04-30
  * Time: 1:27
  */
-require_once 'vendor/autoload.php';
+require_once dirname(__DIR__).'/../vendor/autoload.php';
 
 use PhpAmqpLib\Connection\AMQPStreamConnection;
 use PhpAmqpLib\Wire\AMQPTable;
@@ -14,11 +14,11 @@ $connection = new AMQPStreamConnection('192.168.1.158', 5672, 'admin', '123456')
 $channel = $connection->channel();
 
 $args = new AMQPTable(['x-delayed-type' => 'direct']);
-$channel->exchange_declare('bonza', 'x-delayed-message', false, true, false, false, false, $args);
+$channel->exchange_declare('ok_yang', 'x-delayed-message', false, true, false, false, false, $args);
 
 list($queue_name, , ) = $channel->queue_declare('', false, false, true, false);
 
-$channel->queue_bind($queue_name, 'bonza', 'delay');
+$channel->queue_bind($queue_name, 'ok_yang', 'delay');
 
 echo " [*] Waiting for logs. To exit press CTRL+C\n";
 
